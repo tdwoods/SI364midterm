@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> All Restaurants Entered </h1>
+<div>
+{% for m in get_flashed_messages() %}
+    <em><h3>{{ m }}</h3></em>
+{% endfor %}
+</div>
+{% for r in restaurants %}
+    <h3>  {{ r.name }} </h3>
+    <ul>
+      <li> <b>Address:</b>{{ r.address }} </li>
+      <li> <b>Rating:</b>{{ r.rating|string }}
+      {% if r.rating > 4 %}
+         <em> *This is a good restaurant* </em>
+      {% endif %}
+      </li>
+      <li> <b>Chefs:</b> {{ restaurants[r]|string }}</li>
+    </ul>
+{% endfor %}
+{% endblock %}

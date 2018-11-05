@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> Restaurant Form </h1>
+<form action = "{{ url_for('restaurant_form') }}" method="POST">
+    {{ form.hidden_tag() }}
+    <b>{{ form.chef.label() }}{{ form.chef() }}</b><br>
+    <b>{{ form.restaurant.label() }}{{ form.restaurant() }}</b><br>
+    {{ form.submit() }}
+</form>
+
+<div>
+{% for m in get_flashed_messages() %}
+    <em><h3>{{ m }}</h3></em>
+{% endfor %}
+</div>
+{% endblock %}

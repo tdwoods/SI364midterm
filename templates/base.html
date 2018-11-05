@@ -1,0 +1,18 @@
+<div class = 'page-header'>
+  <h3>Navigation Section</h3>
+  <ul>
+      <li><a href="{{ url_for('home')}}">Go to the name form.</a></li>
+      <li><a href="{{ url_for('all_names')}}">See all names.</a></li>
+      <li><a href = "{{ url_for('restaurant_form')}}"> Go to the restaurant form. </a></li>
+      <li><a href = "{{ url_for('all_restaurants')}}"> See all restaurants. </a></li>
+      <li><a href = "{{ url_for('school_form')}}"> Go to the school form. </a></li>
+  </ul>
+</div>
+{% block content %}
+<form action = "{{ url_for('home') }}" method="POST">
+    {{ form.name.label() }}{{ form.name() }}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+{% endblock %}
